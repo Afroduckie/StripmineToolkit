@@ -39,10 +39,10 @@ public class BlockBreakHandler
     @SubscribeEvent
     public static void modifyBreakspeed(BreakSpeed event)
     {
-	if (held.getItem() instanceof BulkTool)
+	if (event.getPlayer().getHeldItemMainhand().getItem() instanceof BulkTool)
 	    event.setNewSpeed(event.getOriginalSpeed() * 0.7f);
     }
-
+    
     // Hammer break handling
     @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
@@ -72,7 +72,7 @@ public class BlockBreakHandler
 	    LinkedList<BlockPos> positions = getBreakables(event.getPos(), event.getState(), event.getPlayer().getEntityWorld(), held);
 	    if (positions != null)
 	    {
-		for (BlockPos p : positions) player.getEntityWorld().destroyBlock(p, true);
+		for (BlockPos p : positions) player.getEntityWorld().destroyBlock(p, !player.isCreative());
 		event.setResult(Result.ALLOW);
 		if (!player.isCreative())
 		    held.setDamage(held.getDamage() + 4);
@@ -107,20 +107,29 @@ public class BlockBreakHandler
 		{
 		    // Create new BlockPos for the neighbor blocks & add to list
 		    temp = new BlockPos(i + p.getX(), j + p.getY(), p.getZ());
-		    neighbors.add(temp);
-		    temp = null;
+		    if (heldItem.getItem().getToolTypes(heldItem).contains(worldIn.getBlockState(temp).getHarvestTool()))
+		    {
+			neighbors.add(temp);
+			temp = null;
+		    }
 		}
 		else if (tempdir.equals("east") || tempdir.equals("west"))
 		{
 		    temp = new BlockPos(p.getX(), j + p.getY(), i + p.getZ());
-		    neighbors.add(temp);
-		    temp = null;
+		    if (heldItem.getItem().getToolTypes(heldItem).contains(worldIn.getBlockState(temp).getHarvestTool()))
+		    {
+			neighbors.add(temp);
+			temp = null;
+		    }
 		}
 		else if (tempdir.equals("up") || tempdir.equals("down"))
 		{
 		    temp = new BlockPos(j + p.getX(), p.getY(), i + p.getZ());
-		    neighbors.add(temp);
-		    temp = null;
+		    if (heldItem.getItem().getToolTypes(heldItem).contains(worldIn.getBlockState(temp).getHarvestTool()))
+		    {
+			neighbors.add(temp);
+			temp = null;
+		    }
 		}
 	    }
 	}

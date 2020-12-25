@@ -1,14 +1,10 @@
 package com.andrielgaming.bulkminer;
 
 import java.util.stream.Collectors;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import com.andrielgaming.bulkminer.registries.BlockReg;
 import com.andrielgaming.bulkminer.registries.ItemReg;
-//Blocks
-import net.minecraft.block.Blocks;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;

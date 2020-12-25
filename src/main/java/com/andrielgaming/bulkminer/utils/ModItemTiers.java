@@ -17,12 +17,12 @@ public enum ModItemTiers implements IItemTier
 	return Ingredient.fromItems(Items.SMOOTH_STONE);
     }),
 
-    HAMMER_IRON(2, 480, 6.0F, 2.0F, 14, () ->
+    HAMMER_IRON(2, 780, 6.0F, 2.0F, 14, () ->
     {
 	return Ingredient.fromItems(Items.IRON_BLOCK);
     }),
     
-    HAMMER_GOLD(4, 96, 12.0F, 0.0F, 22, () ->
+    HAMMER_GOLD(4, 296, 12.0F, 0.0F, 22, () ->
     {
 	return Ingredient.fromItems(Items.GOLD_BLOCK);
     }),
@@ -47,12 +47,12 @@ public enum ModItemTiers implements IItemTier
 	return Ingredient.fromItems(Items.SMOOTH_STONE);
     }),
 
-    DREDGE_IRON(2, 480, 6.0F, 2.0F, 14, () ->
+    DREDGE_IRON(2, 880, 6.0F, 2.0F, 14, () ->
     {
 	return Ingredient.fromItems(Items.IRON_BLOCK);
     }),
     
-    DREDGE_GOLD(4, 96, 12.0F, 0.0F, 22, () ->
+    DREDGE_GOLD(4, 296, 12.0F, 0.0F, 22, () ->
     {
 	return Ingredient.fromItems(Items.GOLD_BLOCK);
     }),
