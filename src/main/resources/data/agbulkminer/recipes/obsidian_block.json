@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###",
+        "#+#",
+        "###"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:obsidian"
+        },
+        "+": {
+            "item": "minecraft:crying_obsidian"
+        }
+    },
+    "result": {
+        "item": "agbulkminer:obsidian_block",
+        "count": 1
+    }
+}

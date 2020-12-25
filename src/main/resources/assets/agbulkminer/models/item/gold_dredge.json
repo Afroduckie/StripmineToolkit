@@ -1,0 +1,6 @@
+{
+	"parent": "item/handheld",
+	"textures": {
+		"layer0": "agbulkminer:items/gold_dredge"
+	}
+}

@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#-#",
+        "#/#",
+        " / "
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:netherite_block"
+        },
+        "-": {
+            "item": "minecraft:netherite_ingot"
+        },
+        "/": {
+            "item": "minecraft:stick"
+        }
+    },
+    "result": {
+        "item": "agbulkminer:netherite_hammer",
+        "count": 1
+    }
+}

@@ -1,0 +1,5 @@
+{
+    "variants": {
+        "": { "model": "agbulkminer:blocks/compressed_obsidian" }
+    }
+}

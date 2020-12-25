@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#-#",
+        "#/#",
+        " / "
+    ],
+    "key": {
+        "#": {
+            "item": "agbulkminer:compressed_obsidian"
+        },
+        "-": {
+            "item": "minecraft:crying_obsidian"
+        },
+        "/": {
+            "item": "minecraft:stick"
+        }
+    },
+    "result": {
+        "item": "agbulkminer:obsidian_hammer",
+        "count": 1
+    }
+}

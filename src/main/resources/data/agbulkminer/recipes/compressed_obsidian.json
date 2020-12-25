@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "agbulkminer:obsidian_block"
+  },
+  "result": "agbulkminer:compressed_obsidian",
+  "experience": 5.0,
+  "cookingtime": 340
+}
