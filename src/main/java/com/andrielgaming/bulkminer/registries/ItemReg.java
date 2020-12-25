@@ -4,8 +4,6 @@ import com.andrielgaming.bulkminer.BulkMiner;
 import com.andrielgaming.bulkminer.items.tools.Dredge;
 import com.andrielgaming.bulkminer.items.tools.Hammer;
 import com.andrielgaming.bulkminer.utils.ModItemTiers;
-
-import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ToolItem;
