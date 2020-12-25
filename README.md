@@ -34,7 +34,7 @@
 
 **Planned Features:**        *(bold currently in progress)*
    * **Scythes:** Bulk tilling, harvesting, and planting hoes with dynamic, contextual behaviors.
-   * **Lumberjaxe:** Bulk chopping axe that can either fell an entire tree in one block break or break a 3x3 area of wood, your choice!
+   * **Lumberjaxe:** Bulk chopping axe that can either fell trees in one block and break a 3x3 area of wood with contextual usage.
    * **Tiered Mining Radii:** Higher tier bulk tools will mine larger areas (Netherite a 5x5x2 area, for instance), lower as low as 3x2.
    * Material Compressor: block for producing Compressed Obsidian and other fun things. Will replace Obsidian Block when finished.
    * Alloy Table: for crafting tool parts
