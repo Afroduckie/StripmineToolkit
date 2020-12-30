@@ -1,5 +1,5 @@
 {
-	"block.agbulkminer.compressed_obsidian": "Compressed Obsidian",
+	"block.agbulkminer.compressed_obsidian": "Hardened Obsidian",
 	"block.agbulkminer.obsidian_block": "Obsidian Block",
 	"block.agbulkminer.comp_block": "Material Compressor",
 	"item.agbulkminer.stone_hammer": "Stone Hammer",
@@ -13,5 +13,11 @@
 	"item.agbulkminer.gold_dredge": "Gold Dredge",
 	"item.agbulkminer.obsidian_dredge": "Obsidian Dredge",
 	"item.agbulkminer.diamond_dredge": "Diamond Dredge",
-	"item.agbulkminer.netherite_dredge": "Netherite Dredge"
+	"item.agbulkminer.netherite_dredge": "Netherite Dredge",
+	"item.agbulkminer.stone_scythe": "Stone Scythe",
+	"item.agbulkminer.iron_scythe": "Iron Scythe",
+	"item.agbulkminer.gold_scythe": "Gold Scythe",
+	"item.agbulkminer.obsidian_scythe": "Obsidian Scythe",
+	"item.agbulkminer.diamond_scythe": "Diamond Scythe",
+	"item.agbulkminer.netherite_scythe": "Netherite Scythe"
 }

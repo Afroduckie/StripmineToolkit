@@ -1,23 +1,20 @@
 {
     "type": "minecraft:crafting_shaped",
     "pattern": [
-        "#-#",
-        "#/#",
-        " / "
+        "###",
+        " / ",
+        "/  "
     ],
     "key": {
         "#": {
             "item": "agbulkminer:compressed_obsidian"
-        },
-        "-": {
-            "item": "minecraft:crying_obsidian"
         },
         "/": {
             "item": "minecraft:blaze_rod"
         }
     },
     "result": {
-        "item": "agbulkminer:obsidian_hammer",
+        "item": "agbulkminer:obsidian_scythe",
         "count": 1
     }
 }

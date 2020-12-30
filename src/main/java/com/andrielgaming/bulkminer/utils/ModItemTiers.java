@@ -12,62 +12,32 @@ public enum ModItemTiers implements IItemTier
 
     // int harvestLevel, int maxUses, float efficiency, float attackDamage, int
     // enchantability, Supplier<Ingredient> repairMaterial
-    HAMMER_STONE(1, 256, 4.0F, 1.0F, 5, () ->
+    BK_STONE(1, 256, 4.0F, 1.0F, 5, () ->
     {
 	return Ingredient.fromItems(Items.SMOOTH_STONE);
     }),
 
-    HAMMER_IRON(2, 780, 6.0F, 2.0F, 14, () ->
+    BK_IRON(2, 780, 6.0F, 2.0F, 14, () ->
     {
 	return Ingredient.fromItems(Items.IRON_BLOCK);
     }),
     
-    HAMMER_GOLD(4, 296, 12.0F, 0.0F, 22, () ->
+    BK_GOLD(4, 296, 12.0F, 0.0F, 22, () ->
     {
 	return Ingredient.fromItems(Items.GOLD_BLOCK);
     }),
     
-    HAMMER_DIAMOND(3, 1650, 8.0F, 3.0F, 10, () ->
+    BK_DIAMOND(3, 1650, 8.0F, 3.0F, 10, () ->
     {
 	return Ingredient.fromItems(Items.DIAMOND_BLOCK);
     }),
     
-    HAMMER_OBSIDIAN(4, 2048, 9.0F, 4.0F, 15, () ->
+    BK_OBSIDIAN(4, 2048, 9.0F, 4.0F, 15, () ->
     {
 	return Ingredient.fromItems(BlockReg.COMPRESSED_OBSIDIAN.get());
     }),
     
-    HAMMER_NETHERITE(4, 4096, 12.0F, 4.0F, 15, () ->
-    {
-	return Ingredient.fromItems(Items.NETHERITE_INGOT);
-    }),
-    
-    DREDGE_STONE(1, 256, 4.0F, 1.0F, 5, () ->
-    {
-	return Ingredient.fromItems(Items.SMOOTH_STONE);
-    }),
-
-    DREDGE_IRON(2, 880, 6.0F, 2.0F, 14, () ->
-    {
-	return Ingredient.fromItems(Items.IRON_BLOCK);
-    }),
-    
-    DREDGE_GOLD(4, 296, 12.0F, 0.0F, 22, () ->
-    {
-	return Ingredient.fromItems(Items.GOLD_BLOCK);
-    }),
-    
-    DREDGE_DIAMOND(3, 1650, 8.0F, 3.0F, 10, () ->
-    {
-	return Ingredient.fromItems(Items.DIAMOND_BLOCK);
-    }),
-    
-    DREDGE_OBSIDIAN(4, 2048, 9.0F, 4.0F, 15, () ->
-    {
-	return Ingredient.fromItems(BlockReg.COMPRESSED_OBSIDIAN.get());
-    }),
-    
-    DREDGE_NETHERITE(4, 4096, 12.0F, 4.0F, 15, () ->
+    BK_NETHERITE(4, 4096, 12.0F, 4.0F, 15, () ->
     {
 	return Ingredient.fromItems(Items.NETHERITE_INGOT);
     });

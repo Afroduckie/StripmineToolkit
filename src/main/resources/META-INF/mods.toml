@@ -1,76 +1,20 @@
 modLoader="javafml" #mandatory
 loaderVersion="[35,)" #mandatory This is typically bumped every Minecraft version by Forge. See our download page for lists of versions.
 license="All rights reserved"
-#issueTrackerURL="http://my.issue.tracker/" #optional
+issueTrackerURL="https://github.com/Afroduckie/AGBulkMinerReleases/issues" #optional
 [[mods]] #mandatory
 modId="agbulkminer" #mandatory
 version="${file.jarVersion}" #mandatory
-displayName="AG's Strip-Mining Toolkit" #mandatory
-#updateJSONURL="http://myurl.me/" #optional
-#displayURL="http://example.com/" #optional
-#logoFile="examplemod.png" #optional
+displayName="[AG] Strip-Miner's Toolchest" #mandatory
+updateJSONURL="https://github.com/Afroduckie/AGBulkMinerReleases/blob/main/update.json" #optional
+displayURL="https://github.com/Afroduckie/AGBulkMinerReleases/releases" #optional
+logoFile="agbulkminer_banner.png" #optional
 credits="Credit goes to William of AndrielGaming." #optional
 authors="AndrielGaming William. Special thanks to Daniel!" #optional
 description='''
 Adds a variety of vanilla-friendly tools meant to help with menial tasks.
+Currently features the Hammer, for bulk-mining, and the Dredge, for bulk digging.
 
-THE HAMMER:
-	The go-to tool for the strip miner. Mines out a chunk of blocks as opposed to 1 at a time.
-Hammers are tiered and can be made from stone, iron, gold, diamond, obsidian, and netherite.
-The tiers are soft, sturdy, and bulky, and tiers above soft give bonus mining speed and durability.
-Crafted with blocks of your chosen material. Stone and Obsidian require using the new Material Compressor block and a forge.
-Stone tier mines a 2x3 area, iron thru diamond 3x3, obsidian 3x3x2, and netherite 5x5x2.
-Sturdy tier has 2x durability, bulky 4.25x.
-
-THE SICKLE:
-	Sickles are functionally identical to hoes but allow you to harvest, plant, and till large areas.
-Same hardness tiers as the hammers with same durability bonuses, but they're applied using the Alloy Table.
-Craftable with wood, bamboo, stone, iron, gold, diamond, obsidian, and netherite.
-Wood sweeps a 2x2 area, bamboo thru iron 3x3, gold 4x4, diamond and obsidian 5x5, and netherite up to 8x8.
-Harvests contextually, will not try to harvest empty blocks.
-
-THE DREDGE:
-	An enormous shovel meant for heavy-duty landscaping. Functionally identical to the hammer but used for land blocks.
-Parts crafted with the Alloy Table, same bonuses as above tools, same area coverage as the Hammer but only at a depth of 1.
-
-THE LUMBERJAXE:
-	A specialty axe that can chop an entire tree down in one hit. Has similar capability to TreeCapitator and similar mods.
-Comes in wood, stone, iron, gold, diamond, obsidian, and netherite variants, with iron and up requiring the Alloy Table.
-Requires crafting a Precision Axe-Head.
-
-THE NETHERSAW:
-	A unique tool to this mod. A Nether-magic fueled saw for automatically cutting down trees, breaking wood, and even fighting mobs.
-Deals damage to wood at a frightening pace over twice that of any vanilla axe, but it requires some special materials before creating it.
-Requires creation of the engine mount, a blade, and a special fuel for running the saw. The saw itself requires materials from the Nether,
-and the fuel is created with Fire Charges. Netherfuel is created with a saturated fire charge, redstone dust, and coal.
-The Material Compressor is used to create Saturated Fire Charges, and depending on the materials you use, you get longer lasting fuel.
-The Nethersaw Chassis is created using Nether Quartz, redstone dust, steel gears, ingots of choice, and an iron rod.
-The Nethersaw Blades are craftable like tools, with options from iron up to netherite, including obsidian. The Allow Table is required to
-put the final saw together. Using the saw decreases fuel and the durability of the blade, with fuel going out relatively faster.
-
-THE DITCH-WITCH:
-	The landscaping cousin to the Nethersaw. An electric drill for moving dirt, and its rather good at it! Requires a similar build process
-to the Nethersaw. Requires a Ditch-Witch Chassis, Drill-Bit, and the same fuel as the Nethersaw. Drill-Bits come in iron, gold, diamond,
-obsidian, and netherite versions. Requires the Alloy Table and possibly Material Compressor.
+Will later implement a tree-capitating axe and a bulk-farming scythe as well as 2 power tools.
 
 '''
-# A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
-[[dependencies.examplemod]] #optional
-    # the modid of the dependency
-    modId="forge" #mandatory
-    # Does this dependency have to exist - if not, ordering below must be specified
-    mandatory=true #mandatory
-    # The version range of the dependency
-    versionRange="[35,)" #mandatory
-    # An ordering relationship for the dependency - BEFORE or AFTER required if the relationship is not mandatory
-    ordering="NONE"
-    # Side this dependency is applied on - BOTH, CLIENT or SERVER
-    side="BOTH"
-# Here's another dependency
-[[dependencies.examplemod]]
-    modId="minecraft"
-    mandatory=true
-# This version range declares a minimum of the current minecraft version up to but not including the next major version
-    versionRange="[1.16.4,1.17)"
-    ordering="NONE"
-    side="BOTH"

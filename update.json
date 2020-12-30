@@ -1,0 +1,16 @@
+{
+  "homepage": "https://github.com/Afroduckie/AGBulkMinerReleases",
+  "<mcversion>": {
+    "<modversion>": "https://github.com/Afroduckie/AGBulkMinerReleases/releases/tag/Betas", 
+    // List all versions of your mod for the given Minecraft version, along with their changelogs
+    ...
+  },
+  ...
+  "promos": {
+    "<mcversion>-latest": "https://github.com/Afroduckie/AGBulkMinerReleases/releases/tag/Betas",
+    // Declare the latest "bleeding-edge" version of your mod for the given Minecraft version
+    "<mcversion>-recommended": "https://github.com/Afroduckie/AGBulkMinerReleases/releases/tag/Betas",
+    // Declare the latest "stable" version of your mod for the given Minecraft version
+    ...
+  }
+}

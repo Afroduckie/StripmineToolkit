@@ -23,3 +23,4 @@ public class BlockReg
     // Compressed Obsidian
     public static final RegistryObject<Block> COMPRESSED_OBSIDIAN = BLOCKS.register("compressed_obsidian", () -> new Block(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.BLACK).setRequiresTool().hardnessAndResistance(75f, 2000f).sound(SoundType.GILDED_BLACKSTONE).harvestLevel(3).harvestTool(ToolType.PICKAXE)));
 }
+// Explosion
