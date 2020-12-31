@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.Random;
 
 import com.andrielgaming.bulkminer.items.tools.BulkTool;
+import com.andrielgaming.bulkminer.items.tools.Scythe;
 import com.andrielgaming.bulkminer.utils.BlockfaceRayTracer;
 
 import net.minecraft.block.Block;
@@ -59,13 +60,11 @@ public class BlockBreakHandler
 
 	// Grab string name of the block face from static raytracer class
 	dir = BlockfaceRayTracer.getBlockFace(player, pos, held, broken).getName2();
-	System.out.println("DEBUGGGG- " + dir);
 
 	// Check if tool used is one of the strip-mining tools thru BulkTool inheritance
 	if (held.getItem() instanceof BulkTool && dir != null && pos != null)
 	{
-	    LinkedList<BlockPos> positions = getBreakables(event.getPos(), event.getState(), event.getPlayer().getEntityWorld(), held);
-	    System.out.println("DEBUG- " + positions.isEmpty());
+	    LinkedList<BlockPos> positions = getBreakables(event.getPos(), event.getState(), event.getPlayer().getEntityWorld(), held, dir);
 	    if (positions != null && !positions.isEmpty())
 	    {
 		for (BlockPos p : positions) player.getEntityWorld().destroyBlock(p, !player.isCreative());
@@ -78,7 +77,7 @@ public class BlockBreakHandler
     }
 
     @OnlyIn(Dist.CLIENT)
-    public static LinkedList<BlockPos> getBreakables(BlockPos p, BlockState s, World worldIn, ItemStack heldItem)
+    public static LinkedList<BlockPos> getBreakables(BlockPos p, BlockState s, World worldIn, ItemStack heldItem, String face)
     {
 	LinkedList<BlockPos> neighbors = new LinkedList<BlockPos>();
 	p.toImmutable();
@@ -87,13 +86,13 @@ public class BlockBreakHandler
 
 	// Validate compatibility between the held BulkTool and the clicked block
 	boolean isBreakable = heldItem.getToolTypes().contains(worldIn.getBlockState(p).getBlock().getHarvestTool(worldIn.getBlockState(p)));
-	boolean isGrowable = (heldItem.getToolTypes().contains(ToolType.HOE) && s.getBlock() instanceof IGrowable);
+	boolean isGrowable = (heldItem.getToolTypes().contains(ToolType.HOE) && s.getBlock() instanceof IGrowable && Scythe.getHoeTillingState(s) == null);
 	if (isBreakable == false && isGrowable == false)
 	{
 	    return null;
 	}
 
-	String tempdir = dir;
+	String tempdir = face;
 	for (int i = -1; i <= 1; i++)
 	{
 	    for (int j = -1; j <= 1; j++)
@@ -103,13 +102,17 @@ public class BlockBreakHandler
 		{
 		    temp = new BlockPos(j + p.getX(), p.getY(), i + p.getZ());
 		    s_temp = worldIn.getBlockState(temp);
-		    // Should assume, for now, that any block that gets here is a crop
-		    // boolean harvestReady = 
+
 		    if(heldItem.getItem().getToolTypes(heldItem).contains(worldIn.getBlockState(temp).getHarvestTool()) || (heldItem.getToolTypes().contains(ToolType.HOE) && s_temp.getBlock() instanceof IGrowable))
 		    {
 			neighbors.add(temp);
 			temp = null;
 		    }
+		}
+		else if(heldItem.getToolTypes().contains(ToolType.HOE) && isGrowable == false)
+		{
+		    // Currently the Scythe can break non-crop blocks. This should fix it.
+		    return null;
 		}
 		else
 		{
