@@ -33,10 +33,25 @@ import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
+/*	This block is COMPLETELY broken by the 16.5 update, so it basically does nothing right now
+ * 		THANKS FORGE DEVS! YOU BROKE EVERYTHING AND EVERYTHING IS WORSE NOW!
+ * 		But no srsly why TF did you change so much without fixing any of it?
+ * */
+
 public class Compressor extends Block
 {
-    public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
-    private static final VoxelShape PART_BASE = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 4.0D, 14.0D);
+	/*
+	 * This entire thing is just COMPLETELY broken, so...
+	 * 	dont place this block loool
+	 * 
+	 * */
+	
+    public static final DirectionProperty FACING = HorizontalBlock.FACING;
+    
+    // ALL of the VoxelShape stuff completely broke with 16.5, which is just sooooo great.
+    // I wasn't sure if I needed it previously, so lets hope
+    
+    /*private static final VoxelShape PART_BASE = Block.(2.0D, 0.0D, 2.0D, 14.0D, 4.0D, 14.0D);
     private static final VoxelShape PART_LOWER_X = Block.makeCuboidShape(3.0D, 4.0D, 4.0D, 13.0D, 5.0D, 12.0D);
     private static final VoxelShape PART_MID_X = Block.makeCuboidShape(4.0D, 5.0D, 6.0D, 12.0D, 10.0D, 10.0D);
     private static final VoxelShape PART_UPPER_X = Block.makeCuboidShape(0.0D, 10.0D, 3.0D, 16.0D, 16.0D, 13.0D);
@@ -44,33 +59,36 @@ public class Compressor extends Block
     private static final VoxelShape PART_MID_Z = Block.makeCuboidShape(6.0D, 5.0D, 4.0D, 10.0D, 10.0D, 12.0D);
     private static final VoxelShape PART_UPPER_Z = Block.makeCuboidShape(3.0D, 10.0D, 0.0D, 13.0D, 16.0D, 16.0D);
     private static final VoxelShape X_AXIS_AABB = VoxelShapes.or(PART_BASE, PART_LOWER_X, PART_MID_X, PART_UPPER_X);
-    private static final VoxelShape Z_AXIS_AABB = VoxelShapes.or(PART_BASE, PART_LOWER_Z, PART_MID_Z, PART_UPPER_Z);
+    private static final VoxelShape Z_AXIS_AABB = VoxelShapes.or(PART_BASE, PART_LOWER_Z, PART_MID_Z, PART_UPPER_Z);*/
     private static final ITextComponent containerName = new TranslationTextComponent("container.compressor");
+    private BlockState defaultBlockState;
 
     public Compressor(AbstractBlock.Properties properties)
     {
 	super(properties);
-	this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH));
+	this.registerDefaultState(this.defaultBlockState());
     }
 
     public BlockState getStateForPlacement(BlockItemUseContext context)
     {
-	return this.getDefaultState().with(FACING, context.getPlacementHorizontalFacing().rotateY());
+	    return this.defaultBlockState();
     }
-
-    public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit)
+    
+    // I can't figure out WTF they replaced stateContainers with, so this is just removed for now
+    
+   /* public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit)
     {
-	if (worldIn.isRemote)
+	if (worldIn.isClientSide)
 	{
 	    return ActionResultType.SUCCESS;
 	}
 	else
 	{
-	    player.openContainer(state.getContainer(worldIn, pos));
+	    player.openContainer(state.(worldIn, pos));
 	    return ActionResultType.SUCCESS;
 	}
-    }
-
+    }*/
+/*
     @Nullable
     public INamedContainerProvider getContainer(BlockState state, World worldIn, BlockPos pos)
     {
@@ -78,8 +96,8 @@ public class Compressor extends Block
 	{
 	    return new RepairContainer(id, inventory, IWorldPosCallable.of(worldIn, pos));
 	}, containerName);
-    }
-
+    }*/
+/*
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context)
     {
 	Direction direction = state.get(FACING);
@@ -90,28 +108,28 @@ public class Compressor extends Block
     {
 	if (!fallingBlock.isSilent())
 	{
-	    worldIn.playEvent(1029, pos, 0);
+	    worldIn.globalLevelEvent(1029, pos, 0);
 	}
 
-    }
+    }*/
 
     @Nullable
-    public static BlockState damage(BlockState state)
+    /*public static BlockState damage(BlockState state)
     {
-	if (state.isIn(Blocks.ANVIL))
+	if (state.is(Blocks.ANVIL))
 	{
-	    return Blocks.CHIPPED_ANVIL.getDefaultState().with(FACING, state.get(FACING));
+	    return Blocks.CHIPPED_ANVIL.defaultBlockState().with(FACING, state.(FACING));
 	}
 	else
 	{
-	    return state.isIn(Blocks.CHIPPED_ANVIL) ? Blocks.DAMAGED_ANVIL.getDefaultState().with(FACING, state.get(FACING)) : null;
+	    return state.is(Blocks.CHIPPED_ANVIL) ? Blocks.DAMAGED_ANVIL.getDefaultState().with(FACING, state.get(FACING)) : null;
 	}
-    }
+    }*/
 
-    public BlockState rotate(BlockState state, Rotation rot)
+  /*  public BlockState rotate(BlockState state, Rotation rot)
     {
 	return state.with(FACING, rot.rotate(state.get(FACING)));
-    }
+    }*/
 
     protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder)
     {
@@ -123,9 +141,9 @@ public class Compressor extends Block
 	return false;
     }
 
-    @OnlyIn(Dist.CLIENT)
+   /* @OnlyIn(Dist.CLIENT)
     public int getDustColor(BlockState state, IBlockReader reader, BlockPos pos)
     {
 	return state.getMaterialColor(reader, pos).colorValue;
-    }
+    }*/
 }

@@ -13,22 +13,20 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class BlockfaceRayTracer
 {
-    @OnlyIn(Dist.CLIENT)
-    public static BlockRayTraceResult getTraceResult(PlayerEntity player, BlockPos pos, ItemStack tool, Block blk)
-    {
-	BlockRayTraceResult trace;
-	Vector3d start = player.getEyePosition(1.0f);
-	Vector3d end = new Vector3d(pos.getX(), pos.getY(), pos.getZ());
-	trace = player.getEntityWorld().rayTraceBlocks(new RayTraceContext(start, end, RayTraceContext.BlockMode.COLLIDER, RayTraceContext.FluidMode.ANY, null));
-	Direction face = trace.getFace();
-	trace = new BlockRayTraceResult(start, face, pos, false);
-	return trace;
-    }
-    
-    @OnlyIn(Dist.CLIENT)
-    public static Direction getBlockFace(PlayerEntity player, BlockPos pos, ItemStack tool, Block blk)
-    {
-	BlockRayTraceResult trace = getTraceResult(player, pos, tool, blk);
-	return trace.getFace();
-    }
+	public static BlockRayTraceResult getTraceResult(PlayerEntity player, BlockPos pos, ItemStack tool, Block blk)
+	{
+		BlockRayTraceResult trace;
+		Vector3d start = player.getEyePosition(1.0f);
+		Vector3d end = new Vector3d(pos.getX(), pos.getY(), pos.getZ());
+		trace = player.getEntity().level.clip(new RayTraceContext(start, end, RayTraceContext.BlockMode.COLLIDER, RayTraceContext.FluidMode.ANY, null));
+		Direction face = trace.getDirection();
+		trace = new BlockRayTraceResult(start, face, pos, false);
+		return trace;
+	}
+
+	public static Direction getBlockFace(PlayerEntity player, BlockPos pos, ItemStack tool, Block blk)
+	{
+		BlockRayTraceResult trace = getTraceResult(player, pos, tool, blk);
+		return trace.getDirection();
+	}
 }
